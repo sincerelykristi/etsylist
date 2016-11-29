@@ -1,0 +1,21 @@
+body {
+  height: 100%;
+  width: 100%;
+  background: url("../images/thread_background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: orange;
+
+}
+
+.logo {
+  font-family: cursive;
+  color: orange;
+  margin: 0;
+  display: inline-block;
+  font-size: 70px;
+
+
+}

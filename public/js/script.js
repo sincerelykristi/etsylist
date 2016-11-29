@@ -15,8 +15,9 @@ var callEtsy = function(searchedWords) {
   dataType: "jsonp",
   success: function(data){
     console.log(data);
-    searchResults(data.results);
-
+    for (var i = 0; i < data.results.length; i++) {
+      searchResults(data.results[i]);
+    }
   }
  });
 }
@@ -31,14 +32,13 @@ var searchEtsy = function() {
 searchEtsy();
 
 var searchResults = function(data) {
-  $.each(data, function () {
     var image = data.Images[0].url_570xN;
     var price = data.price;
     var title = data.title;
     var link = data.url;
 
     etsyList(image, price, title, link);
-  })
+
 }
 
 var etsyList = function(image, price, title, link) {
