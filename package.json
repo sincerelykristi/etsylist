@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "auth"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sincerelykristi/etsylist.git"
@@ -22,6 +25,8 @@
     "express": "^4.14.0",
     "express-session": "^1.14.2",
     "mustache-express": "^1.2.4",
-    "pg-promise": "^5.4.4"
+    "path": "^0.12.7",
+    "pg-promise": "^5.4.4",
+    "request": "^2.79.0"
   }
 }

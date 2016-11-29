@@ -11,18 +11,18 @@
   <link rel="stylesheet" type="text/css" href="public/css/style.css">
 </head>
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-3 col-sm-3 col-xs-1 container">
-        <img src="views/etsy_logo.png" alt="Etsylist" width="200">
-        <h1 class="logo">list</h1>
-      </div>
-    </div>
+
+  <img src="../public/images/etsy_logo.png" alt="Etsylist" width="200">
+  <h1>list</h1>
+  <h2>Login</h2>
+
+  <form action="/login" method="post">
+      Email: <input name="email" type="text" id="inputEmail" placeholder="Email">
+      Password: <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+      <input type="submit" value="submit" />
+    </form>
 
 
-
-
-  </div>
 <script src="public/js/script.js"></script>
 </body>
 </html>

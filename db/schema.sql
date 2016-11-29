@@ -17,5 +17,9 @@ CREATE TABLE lists (
 
 CREATE TABLE items (
   id SERIAL PRIMARY KEY,
+  name text,
+  price text,
+  image text,
+  link text,
   table_id integer REFERENCES lists (id)
 )
