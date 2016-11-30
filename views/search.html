@@ -5,19 +5,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Etsylist</title>
   <script type="text/javascript" src="/js/jquery.js"></script>
-<!--   <script type="text/javascript" src="../config.js"></script> -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 
-<form id="search-bar">
+    <form id="search-bar">
         <input id="search-terms" size="55" placeholder="What are you looking for?">
         <button id="search-button" type="button">Search!</button>
     </form>
 
-    <div id="etsy-images"></div>
+    <div id="etsy-images">
+
+      <div class='dropdown'>
+      <button class='btn btn-default dropdown-toggle' type='button' id='dropdownMenu1' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+      <span class='glyphicon glyphicon-heart' aria-hidden='true'></span>
+      </button>
+      <ul class='dropdown-menu' aria-labelledby='dropdownMenu1'>
+      <li class='dropdown-header'>Choose your wishlist</li>
+      {{#lists}}
+      <li id='firstlist'><a href='/additem'>{{name}}</a></li>
+      {{/lists}}
+      </ul>
+      </div>
+
+    </div><br/>
 
 <script src="/js/script.js"></script>
 </body>

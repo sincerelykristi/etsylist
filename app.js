@@ -29,32 +29,35 @@ app.use(session({
 
 var db = pgp('postgres://kristimurphy@localhost:5432/etsy_list');
 
+//API call for search - appended to the DOM in etsyList in script.js
 app.get("/api", function(req, res) {
-    //console.log("REQ", req)
     var stuff = req.query.value;
-    console.log("REQ2", stuff)
-        //console.log("RESP", res)
-
-
     var api = "https://openapi.etsy.com/v2/listings/active?keywords="+stuff+"&limit=12&includes=Images:1&api_key=" + MY_KEY;
-    //https://openapi.etsy.com/v2/listings/?api_key=
 
     request.get({
             url: api,
             json: true
         }, function(err, resp, data) {
-            //console.log('RESULTS', data.results)
-            //console.log(JSON.parse(data));
             res.json(data.results)
-                // res.json(body);
         } //end function
     ); //end request
 }); //end get
+//end API call function
 
+
+//Load cover page
 app.get("/", function(req, res) {
-    res.render('index');
+    var user = req.session.user;
+
+
+    if (user) {
+      res.redirect("/dashboard");
+    } else {
+      res.render('index');
+    }
 })
 
+//User Authentication or login
 app.get("/login", function(req, res) {
     var logged_in;
     var email;
@@ -99,7 +102,7 @@ app.post('/login', function(req, res) {
         bcrypt.compare(data.password, user.password_digest, function(err, cmp) {
             if (cmp) {
                 req.session.user = user;
-                res.redirect('/search');
+                res.redirect('/dashboard');
             } else {
                 res.send('Email/Password not found.')
             }
@@ -107,10 +110,70 @@ app.post('/login', function(req, res) {
     });
 });
 
+//Search page route
 app.get('/search', function(req, res) {
-    res.render('search');
+  var user = req.session.user;
+  var data = {data:user};
+  if (user) {
+    db.many("SELECT * FROM lists WHERE user_id = $1", [user.id]).then(function(list){
+      data['lists'] = list;
+      console.log(data);
+            res.render('search', data);
+    })
+
+  } else {
+    res.redirect('/')
+  }
 })
 
+//Dashboard page route
+app.get('/dashboard', function(req, res){
+  var user = req.session.user;
+  var data = {data:user};
+  if (user) {
+    res.render('dashboard', data);
+  } else {
+    res.redirect('/')
+  }
+})
+
+//List page route
+app.get('/lists', function(req, res){
+  var user = req.session.user;
+  var data = {data:user};
+  if (user) {
+    db.many("SELECT * FROM lists WHERE user_id = $1", [user.id]).then(function(list){
+      data['lists'] = list;
+      console.log(data);
+            res.render('list', data);
+    })
+
+  } else {
+    res.redirect('/')
+  }
+})
+
+//create a new wishlist
+app.post('/createlist', function(req, res) {
+    var user = req.session.user;
+    var data = {data:user};
+
+    var wishlist = req.body;
+
+    db.none(
+      "INSERT INTO lists (name, user_id) VALUES ($1, $2)", [wishlist.name, user.id]
+        ).then(function() {
+            res.redirect('/lists');
+        })
+    });
+
+
+//Logout and redirect to home page
+app.get('/logout', function(req, res){
+  req.session.destroy(function(){
+    res.redirect("/")
+  });
+})
 
 app.listen(3000, function() {
     console.log('Etsylist App: listening on port 3000!');

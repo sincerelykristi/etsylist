@@ -4,19 +4,29 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Etsylist</title>
-  <script type="text/javascript" src="public/js/jquery.js"></script>
-  <script type="text/javascript" src="config.js"></script>
-  <link rel="stylesheet" type="text/css" href="public/css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="public/css/style.css">
+  <script type="text/javascript" src="/js/jquery.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 
-
-        <img src="../public/images/etsy_logo.png" alt="Etsylist" width="200">
+        <img src="/images/etsy_logo.png" alt="Etsylist" width="200">
         <h1>list</h1>
         <h2>saved lists</h2>
+        <h2>Welcome {{data.name}}</h2>
+        {{#lists}}
+          <h3 class="wishlist">{{name}}</h3>
+        {{/lists}}
 
-<script src="public/js/script.js"></script>
+
+      <h2>Create a new Wishlist</h2>
+        <form action="/createlist" method="post">
+        Wishlist Name: <input name="name" type="text" id="inputName" placeholder="Wishlist Name">
+        <input type="submit" value="submit" />
+        </form>
+
+
+<script src="/js/script.js"></script>
 </body>
 </html>
