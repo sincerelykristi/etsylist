@@ -12,7 +12,7 @@ const parseJson = require('parse-json');
 var MY_KEY = process.env.MY_KEY;
 var SECRET_KEY = process.env.SECRET_KEY;
 
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 /* BCrypt stuff here */
 const bcrypt = require('bcrypt');
