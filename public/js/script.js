@@ -40,20 +40,29 @@ $(document).ready(function() {
         var title = data.title;
         var link = data.url;
 
+
         etsyList(image, price, title, link);
 
     }
 
     var etsyList = function(image, price, title, link) {
+        var shortTitle = title.split(',');
         var $body = $("body");
         var $etsyimages = $("#etsy-images");
         var $item = $("<div class='item'></div>");
+        var $form = $("<form action='/additem' method='post'></form>");
         $etsyimages.append($item);
         $item.append("<img src='" + image + "'>");
         $item.append("<p>$" + price + "</p>");
-        $item.append("<p>$" + title + "</p>");
+        $item.append("<p>" + shortTitle + "</p>");
         $item.append("<a href=" + link + "> Buy on Etsy </a>");
-    };
+        $item.append($form);
+        $form.append("<input name='image' type='hidden' value='" + image + "'>");
+        $form.append("<input name='name' type='hidden' value='" +shortTitle+ "'>");
+        $form.append("<input name='link' type='hidden' value='" +link+ "'>");
+        $form.append("<input name='price' type='hidden' value='" +price+ "'>");
+        $form.append("<button type='submit' value='submit' class='btn btn-default btn-lg'><span class='glyphicon glyphicon-heart' aria-hidden='true'></span></button>");
+        };
 
     //end Search functions
 

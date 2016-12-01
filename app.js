@@ -6,9 +6,13 @@ const bodyParser = require("body-parser");
 const session = require('express-session');
 const path = require('path');
 const request = require('request');
+const methodOverride = require('method-override');
+const parseJson = require('parse-json');
 
 var MY_KEY = process.env.MY_KEY;
 var SECRET_KEY = process.env.SECRET_KEY;
+
+var port = process.env.PORT || 3000;
 
 /* BCrypt stuff here */
 const bcrypt = require('bcrypt');
@@ -19,6 +23,7 @@ app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname + '/public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(methodOverride('_method'));
 
 app.use(session({
     secret: 'theTruthIsOutThere51',
@@ -27,7 +32,7 @@ app.use(session({
     cookie: { secure: false }
 }))
 
-var db = pgp('postgres://kristimurphy@localhost:5432/etsy_list');
+var db = pgp(process.env.DATABASE_URL || 'postgres://kristimurphy@localhost:5432/etsy_list');
 
 //API call for search - appended to the DOM in etsyList in script.js
 app.get("/api", function(req, res) {
@@ -86,10 +91,11 @@ app.post('/signup', function(req, res) {
         db.none(
             "INSERT INTO users (name, email, password_digest) VALUES ($1, $2, $3)", [data.name, data.email, hash]
         ).then(function() {
-            res.send('User created!');
+            res.redirect('/login');
         })
     });
-})
+});
+
 
 app.post('/login', function(req, res) {
     var data = req.body;
@@ -115,16 +121,24 @@ app.get('/search', function(req, res) {
   var user = req.session.user;
   var data = {data:user};
   if (user) {
-    db.many("SELECT * FROM lists WHERE user_id = $1", [user.id]).then(function(list){
-      data['lists'] = list;
-      console.log(data);
             res.render('search', data);
-    })
-
-  } else {
+    } else {
     res.redirect('/')
   }
-})
+});
+
+//post item to wishlist
+app.post('/additem', function(req,res){
+  var data = req.body;
+  var user = req.session.user;
+  var userData = {data:user};
+  db.none("INSERT INTO items (name, price, image, link, table_id) VALUES ($1, $2, $3, $4, $5)", [data.name, data.price, data.image, data.link, user.id]
+        ).then(function() {
+            console.log('item added!');
+            res.redirect('/search');
+        });
+});
+
 
 //Dashboard page route
 app.get('/dashboard', function(req, res){
@@ -142,31 +156,54 @@ app.get('/lists', function(req, res){
   var user = req.session.user;
   var data = {data:user};
   if (user) {
-    db.many("SELECT * FROM lists WHERE user_id = $1", [user.id]).then(function(list){
-      data['lists'] = list;
-      console.log(data);
-            res.render('list', data);
+    //database call to retrieve session users saved items. Mustache appends them to their page
+    db.any("SELECT * FROM items WHERE table_id = $1", [user.id]).then(function(items){
+      data['item']=items;
+
+      res.render('list', data);
     })
 
+    } else {
+    res.redirect('/')
+  }
+});
+
+//settings page route
+app.get('/settings', function(req, res){
+  var user = req.session.user;
+  var data = {data:user};
+  var formData = req.body;
+
+  if (user) {
+    db.one("SELECT * FROM users WHERE id = $1", [user.id]).then(function(data){
+    res.render('settings', data);
+  })
   } else {
     res.redirect('/')
   }
 })
 
-//create a new wishlist
-app.post('/createlist', function(req, res) {
-    var user = req.session.user;
-    var data = {data:user};
+//Deletes an item from the wishlist
+app.delete('/delete/:id', function(req,res){
+  var data = req.body;
+  console.log(data);
+  console.log(req.params.id);
 
-    var wishlist = req.body;
 
-    db.none(
-      "INSERT INTO lists (name, user_id) VALUES ($1, $2)", [wishlist.name, user.id]
-        ).then(function() {
-            res.redirect('/lists');
-        })
-    });
+ db.one('DELETE FROM items WHERE id = $1', req.params.id);
+   res.redirect('/lists');
+});
 
+//update user settings
+app.put("/updateusers/:id", function(req, res){
+  var user = req.session.user;
+  var data = {data:user};
+  var formData = req.body;
+
+  db.none("UPDATE users SET name = $1, email = $2 WHERE id = $3", [formData.name, formData.email, req.params.id]);
+  res.redirect("/dashboard")
+
+})
 
 //Logout and redirect to home page
 app.get('/logout', function(req, res){
@@ -175,6 +212,6 @@ app.get('/logout', function(req, res){
   });
 })
 
-app.listen(3000, function() {
-    console.log('Etsylist App: listening on port 3000!');
+app.listen(port, function() {
+    console.log('Etsylist App: listening on port', port);
 });

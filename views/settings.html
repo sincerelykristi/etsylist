@@ -12,24 +12,28 @@
 </head>
 <body>
 <img src="/images/etsy_logo.png" alt="Etsylist" width="200">
-<h1>Search Etsy. Save Wants. Get Gifts.</h1>
+<h1>User Settings</h1>
 <nav>
   <ul>
     <li><a href="/dashboard">Dashboard</a></li>
+    <li><a href="/search">Search</a></li>
     <li><a href="/lists">Your Wishlist</a></li>
-    <li><a href="/settings">Settings</a></li>
     <li><a href="/logout">Log Out</a></li>
   </ul>
 </nav>
 
-    <form id="search-bar">
-        <input id="search-terms" size="55" placeholder="What are you looking for?">
-        <button id="search-button" type="button">Search!</button>
-    </form>
+<h1>Hey {{name}}!</h1>
 
-    <div id="etsy-images">
-    <!-- etsy items from search entered here -->
-    </div><br/>
+<h2>Your name is set to: {{name}}</h2><br/>
+<h2>Your email is set to: {{email}}</h2></body><br/>
+
+<h1>Edit</h1>
+<form method="POST" action="/updateusers/{{id}}?_method=PUT">
+<input name="name" id="name" value="{{name}}"><br>
+<input name="email" id="email" value="{{email}}"><br>
+<button type="submit">Update!</button>
+</form>
+
 
 <script src="/js/script.js"></script>
 </body>

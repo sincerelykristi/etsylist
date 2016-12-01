@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS lists;
-DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS lists CASCADE;
+DROP TABLE IF EXISTS items CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -9,17 +9,11 @@ CREATE TABLE users (
   password_digest VARCHAR(255)
 );
 
-CREATE TABLE lists (
-  id SERIAL PRIMARY KEY,
-  name text,
-  user_id integer REFERENCES users (id)
-);
-
 CREATE TABLE items (
   id SERIAL PRIMARY KEY,
   name text,
   price text,
   image text,
   link text,
-  table_id integer REFERENCES lists (id)
+  table_id integer REFERENCES users (id)
 )

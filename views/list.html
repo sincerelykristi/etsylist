@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Etsylist</title>
+  <title>Etsy.list</title>
   <script type="text/javascript" src="/js/jquery.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/normalize.css">
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
@@ -12,19 +12,32 @@
 <body>
 
         <img src="/images/etsy_logo.png" alt="Etsylist" width="200">
-        <h1>list</h1>
-        <h2>saved lists</h2>
         <h2>Welcome {{data.name}}</h2>
-        {{#lists}}
-          <h3 class="wishlist">{{name}}</h3>
-        {{/lists}}
+        <nav>
+            <ul>
+                <li><a href="/dashboard">Dasboard</a></li>
+                <li><a href="/search">Search</a></li>
+                <li><a href="/settings">Settings</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+        </nav>
+        {{#item}}
+          <h3>{{name}}</h3>
+          <img src="{{image}}">
+          <h4>${{price}}</h4>
+          <a href="{{link}}">Buy on Etsy</a>
+          <form method="POST" action="/delete/{{id}}?_method=DELETE">
+          <input name="id" type="hidden" value={{id}}>
+          <button type="submit" value="submit" class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+          </button>
+          </form>
+
+        {{/item}}
 
 
-      <h2>Create a new Wishlist</h2>
-        <form action="/createlist" method="post">
-        Wishlist Name: <input name="name" type="text" id="inputName" placeholder="Wishlist Name">
-        <input type="submit" value="submit" />
-        </form>
+
+
 
 
 <script src="/js/script.js"></script>
