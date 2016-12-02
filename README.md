@@ -26,15 +26,15 @@ The server is built with Node.js, Express.js, npm, AJAX/API calls to Etsy's API.
 To start I conceptualized the data structures with a database ERD. My original ERD featured 3 tables but was later changed to two when I changed the functionality of the app to NOT feature multiple wishlist. This functionality may be added in the future. ERDs pictured below.
 
 ### 3 Table ERD
-![3 Table ERD](http://imgur.com/a/awCyj)
+![Etsy.list 3 Table ERD](http://i.imgur.com/WPEXVeJ.jpg)
 
 ### 2 Table ERD
-![2 Table ERD](http://imgur.com/a/FDLF1)
+![Etsy.list 2 Table ERD](http://i.imgur.com/pRKLs36.jpg)
 
 From there I also thought out the wireframes for each page of my application (and in turn the views/routes for later backend).
 
 ## Wireframes
-![Wireframes](http://imgur.com/a/InZ45)
+![Etsy.list Wireframes](http://i.imgur.com/rzzeay6.jpg)
 
 My API Call happens in the backend and passes it to my front end javascript file to append the Search information for user access. 
 
