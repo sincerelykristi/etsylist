@@ -6,6 +6,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-color: orange;
+  padding: 0;
 
 }
 
@@ -38,3 +39,20 @@ h1, h2, h3 {
 .textContainer h2 {
   margin-bottom: 20px;
 }
+
+.nav a {
+  color: white;
+  font-family: 'Heebo', sans-serif;
+
+}
+
+.listwrapper {
+  background-color: beige;
+  text-align: center;
+}
+
+.listwrapper h1, h2, h3 {
+  color: grey;
+}
+
+
