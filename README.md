@@ -1,4 +1,4 @@
-# Etsy.list
+# ![](/public/images/etsy-list-logo.png)Etsy.list
 
 Etsy.list is a fullstack CRUD web application allowing users to search the Etsy 
 marketplace and save items to their personal Wishlist. Etsy.list also features login 
@@ -55,6 +55,8 @@ Bootstrap: I started styling with Bootstrap but the functionality of the web app
 Multiple Wishlists: When I started the project, I wanted users to be able to create many wishlists and when saving, wanted them to have the option of which wishlist to add the item to.
 
 Although I was able to create three tables - Users, Lists and Item - and allow logged in users to create multiple lists, I was not able to solve how to access the lists table while also letting users choose a list for each searched item. 
+
+Search result pagination: Currently the search limits to 12 results. I could return thousands of results but wanted to give the results pages; 12 results per page. 
 
 
 

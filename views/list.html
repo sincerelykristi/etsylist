@@ -12,27 +12,25 @@
 </head>
 <body>
 
-  <div class="row">
-    <div class="col-sm-12 col-md-3 col-lg-3 text-center">
-      <img id="logo" src="/images/etsy-list-logo_ow.png" alt="Etsylist" width="300px">
+  <div class="row no-gutter row-eq-height">
+    <div class="col-sm-12 col-md-3 col-lg-3 container">
+      <img class="img-responsive" id="logo" src="/images/etsy-list-logo_ow.png" alt="Etsylist">
     </div>
-    <div class="col-sm-12 col-md-8 col-lg-8">
-      <nav class="navbar navbar-right">
-        <ul class="nav navbar-nav navbar-right">
+    <div class="col-sm-12 col-md-9 col-lg-9 container">
+      <ul class="nav navbar-nav navbar-right container-fluid">
           <li><a href="/dashboard">Dasboard</a></li>
           <li><a href="/search">Search</a></li>
           <li><a href="/settings">Settings</a></li>
           <li><a href="/logout">Log Out</a></li>
-        </ul>
-      </nav>
+      </ul>
     </div>
   </div>
 
   <div class="row">
     <div class="col-xs-8-offset-2 col-sm-10-offset-1 col-lg-10-offset-1">
         <h2>Welcome {{data.name}}</h2>
-        <div class="listwrapper">
         {{#item}}
+        <div class="listwrapper">
           <h3>{{name}}</h3>
           <img src="{{image}}">
           <h4>${{price}}</h4>
@@ -44,9 +42,10 @@
           </button>
           </form>
       </div>
+      {{/item}}
     </div>
   </div>
-        {{/item}}
+
 
 
 
