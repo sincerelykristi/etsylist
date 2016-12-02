@@ -1,4 +1,4 @@
-# ![](/public/images/etsy-list-logo.png)Etsy.list
+# ![](/public/images/etsy-list-logo.png)
 
 Etsy.list is a fullstack CRUD web application allowing users to search the Etsy 
 marketplace and save items to their personal Wishlist. Etsy.list also features login 
