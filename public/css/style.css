@@ -1,5 +1,4 @@
 body {
-  height: 100%;
   width: 100%;
   background: url("../images/thread_background.jpg");
   background-position: center center;
@@ -16,9 +15,26 @@ body {
 
 h1, h2, h3 {
   color: white;
+  font-family: 'Heebo', sans-serif;
 }
 
 .middlewrapper {
   text-align: center;
-  margin: 0 auto;
+  height: 100%;
+}
+
+.textContainer {
+    min-height: 100%;
+    height: 100vh;
+}
+
+
+.textContainer h1, h2, h3 {
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0px;
+}
+
+.textContainer h2 {
+  margin-bottom: 20px;
 }
