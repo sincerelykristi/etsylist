@@ -6,24 +6,40 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-color: orange;
-  padding: 0;
+  margin-top: 50px;
+}
+
+.site-container {
+  width: 90%;
+  text-align: center;
+}
+
+/* make navbar links sit verticall aligned with logo */
+.navbar-nav > li > a {
+   line-height: 62px;
+}
+
+/* override bootstrap navbar styleing for the headers */
+#header-default {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
+/* change link color to white and font same as headers */
+#header-default a {
+  color: white;
+  font-family: 'Heebo', sans-serif;
+}
+
+.navbar-toggle.collapsed {
+  background: white;
+  margin: 25px 10px 20px 0px;
 
 }
 
-#logo {
-  padding: 20px;
-}
 
-.row.no-gutter {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.row.no-gutter [class*='col-']:not(:first-child),
-.row.no-gutter [class*='col-']:not(:last-child) {
-  padding-right: 0;
-  padding-left: 0;
-}
 
 h1, h2, h3 {
   color: white;
@@ -32,24 +48,12 @@ h1, h2, h3 {
 
 .middlewrapper {
   text-align: center;
-  height: 100%;
-}
-
-.textContainer {
-    min-height: 100%;
-    height: 100vh;
 }
 
 
-.textContainer h1, h2, h3 {
-    vertical-align: middle;
-    display: inline-block;
-    margin: 0px;
-}
 
-.textContainer h2 {
-  margin-bottom: 20px;
-}
+
+
 
 .nav a {
   color: white;
@@ -62,8 +66,42 @@ h1, h2, h3 {
   text-align: center;
 }
 
-/* .listwrapper h1, h2, h3 {
-  color: grey;
-} */
+/* stack overflow answer on how to change breakpoints for collapsed button toggle. I'm not sure if I need all of this actually. */
+@media (max-width: 991px) {
+  .navbar-header {
+      float: none;
+  }
+  .navbar-left,.navbar-right {
+      float: none !important;
+  }
+  .navbar-toggle {
+      display: block;
+  }
+  .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+  }
+  .navbar-collapse.collapse {
+      display: none!important;
+  }
+  .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+  }
+  .navbar-nav>li {
+      float: none;
+  }
+  .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+  .collapse.in{
+      display:block !important;
+  }
+}
 
 

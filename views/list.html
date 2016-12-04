@@ -1,57 +1,96 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Etsy.list</title>
-  <script type="text/javascript" src="/js/jquery.js"></script>
-  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Heebo:500" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Etsy.list</title>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:500" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
+
 <body>
+<div class="container">
+<!-- Code from Bootstraps default navbar -->
+    <nav id="header-default" class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-menu-header" aria-expanded="false">
+                    <!-- sr = screen reader -->
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img id="logo" src="/images/etsy-list-logo_ow.png" alt="Etsylist" width="300px">
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="collapse-menu-header">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/dashboard">Dasboard</a></li>
+                    <li><a href="/search">Search</a></li>
+                    <li><a href="/settings">Settings</a></li>
+                    <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
 
-  <div class="row no-gutter row-eq-height">
-    <div class="col-sm-12 col-md-3 col-lg-3 container">
-      <img class="img-responsive" id="logo" src="/images/etsy-list-logo_ow.png" alt="Etsylist">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- <div class="col-xs-8-offset-2 col-sm-10-offset-1 col-lg-10-offset-1 welcome">
+              <h2>{{data.name}}'s Wishlist</h2>
+              {{#item}}
+              <div class="listwrapper">
+                  <h3>{{name}}</h3>
+                  <img src="{{image}}">
+                  <h4>${{price}}</h4>
+                  <a href="{{link}}">Buy on Etsy</a>
+                  <form method="POST" action="/delete/{{id}}?_method=DELETE">
+                      <input name="id" type="hidden" value={{id}}>
+                      <button type="submit" value="submit" class="btn btn-default btn-lg">
+                          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                      </button>
+                  </form>
+              </div>
+              {{/item}}
+          </div> -->
     </div>
-    <div class="col-sm-12 col-md-9 col-lg-9 container">
-      <ul class="nav navbar-nav navbar-right container-fluid">
-          <li><a href="/dashboard">Dasboard</a></li>
-          <li><a href="/search">Search</a></li>
-          <li><a href="/settings">Settings</a></li>
-          <li><a href="/logout">Log Out</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-8-offset-2 col-sm-10-offset-1 col-lg-10-offset-1">
-        <h2>Welcome {{data.name}}</h2>
-        {{#item}}
-        <div class="listwrapper">
-          <h3>{{name}}</h3>
-          <img src="{{image}}">
-          <h4>${{price}}</h4>
-          <a href="{{link}}">Buy on Etsy</a>
-          <form method="POST" action="/delete/{{id}}?_method=DELETE">
-          <input name="id" type="hidden" value={{id}}>
-          <button type="submit" value="submit" class="btn btn-default btn-lg">
-          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-          </button>
-          </form>
-      </div>
-      {{/item}}
-    </div>
-  </div>
-
-
-
-
-
-
-
-<script src="/js/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
+
 </html>
+
+
