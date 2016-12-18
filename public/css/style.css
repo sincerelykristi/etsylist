@@ -1,107 +1,201 @@
+html {
+  height: 100vh;
+}
+
 body {
   width: 100%;
+  min-height: 100vh;
   background: url("../images/thread_background.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-color: orange;
-  margin-top: 50px;
 }
-
-.site-container {
-  width: 90%;
-  text-align: center;
-}
-
-/* make navbar links sit verticall aligned with logo */
-.navbar-nav > li > a {
-   line-height: 62px;
-}
-
-/* override bootstrap navbar styleing for the headers */
-#header-default {
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-size: 20px;
-}
-
-/* change link color to white and font same as headers */
-#header-default a {
-  color: white;
-  font-family: 'Heebo', sans-serif;
-}
-
-.navbar-toggle.collapsed {
-  background: white;
-  margin: 25px 10px 20px 0px;
-
-}
-
-
 
 h1, h2, h3 {
+  font-family: 'Droid Serif', serif;
   color: white;
-  font-family: 'Heebo', sans-serif;
+}
+/* nav bar styling start */
+
+.nav-wrapper {
+  width: 90%;
+  margin: 0 auto;
 }
 
-.middlewrapper {
+nav {
+    height: 100px;
+    line-height: 100px;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    height: 100px;
+    line-height: 100px;
+}
+
+nav .button-collapse i {
+    height: 100px;
+    line-height: 100px;
+}
+
+.navbar-material .nav-wrapper .brand-logo img {
+    height: 64px;
+}
+
+#logo {
+  height: 64px;
+  margin-top: 20px;
+}
+
+#logoindex {
+  height: 100px;
+  margin-top: 20px;
+}
+
+
+nav .brand-logo {
+    font-size: 1.6rem;
+}
+
+.navbar-fixed {
+  height: 100px;
+  line-height: 100px;
+}
+
+#index-container {
+  margin-top: 150px;
   text-align: center;
+  padding: 50px;
 }
 
 
+/* @media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 100px;
+        width: 100%;
+        line-height: 100px;
+    }
+
+} */
+
+@media only screen and (max-width: 601px){
+/* navbar mobile styling start */
+    body {
+      width: 100%;
+    }
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 80px;
+        line-height: 80px;
+    }
+
+    #logo {
+      height: 32px;
+      margin-top: 25px;
+    }
+
+    .nav-wrapper {
+      width: 90%;
+      margin: 0 auto;
+    }
+/* navbar mobile styling end */
+
+/* index page mobile styling start */
+
+    #logoindex {
+      width: 100%;
+      height: 100%;
+    }
+
+    #index-container {
+    max-width: 90%;
+    margin-top: 70px;
+    text-align: center;
+    padding: 15px;
+    }
+
+    #index-container h1 {
+      font-size: 35px;
+      margin: 0;
+      display: inline-block;
+    }
+
+    #index-container h2 {
+      font-size: 30px;
+      display: inline-block;
+    }
+
+    #index-container h3 {
+      font-size: 25px;
+      display: inline-block;
+    }
+
+    button {
+      width: 100%;
+      margin: 10px auto;
+      padding: 0;
+    }
+/* index mobile page styling end */
 
 
 
+}
 
-.nav a {
-  color: white;
-  font-family: 'Heebo', sans-serif;
+#wishlistheader {
+  margin: 50px 0;
+  font-size: 3em;
+}
 
+#wishlist-container {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .listwrapper {
-  background-color: beige;
+  border-radius: 30px 30px 30px 30px;
   text-align: center;
+  width: 400px;
+  display: inline-block;
+  color: black;
+  margin-bottom: 5%;
+  margin-left: 5%;
+
 }
 
-/* stack overflow answer on how to change breakpoints for collapsed button toggle. I'm not sure if I need all of this actually. */
-@media (max-width: 991px) {
-  .navbar-header {
-      float: none;
-  }
-  .navbar-left,.navbar-right {
-      float: none !important;
-  }
-  .navbar-toggle {
-      display: block;
-  }
-  .navbar-collapse {
-      border-top: 1px solid transparent;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-  }
-  .navbar-fixed-top {
-      top: 0;
-      border-width: 0 0 1px;
-  }
-  .navbar-collapse.collapse {
-      display: none!important;
-  }
-  .navbar-nav {
-      float: none!important;
-      margin-top: 7.5px;
-  }
-  .navbar-nav>li {
-      float: none;
-  }
-  .navbar-nav>li>a {
-      padding-top: 10px;
-      padding-bottom: 10px;
-  }
-  .collapse.in{
-      display:block !important;
-  }
+
+.listwrapper h1,h2,h3 {
+  color: black;
+  font-size: 2em;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 5%;
+  text-overflow: ellipsis;
 }
+
+#img-container {
+  width: 45%;
+  display: inline-block;
+}
+
+#item-img {
+  height: 200px;
+}
+
+#item-details {
+  width: 45%;
+  display: inline-block;
+}
+
+.listwrapper .btn {
+  margin-bottom: 10px;
+}
+
+button p {
+  margin: 0;
+}
+
+
+
 
 

@@ -1,39 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Etsy.list</title>
-  <script type="text/javascript" src="/js/jquery.js"></script>
-  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Heebo:500" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- title -->
+    <title>Etsy.list</title>
+
+    <!-- scripts Jquery and Materialize -->
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/materialize.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <!-- stylesheets -->
+<!--     <link rel="stylesheet" type="text/css" href="/css/normalize.css"> -->
+    <link rel="stylesheet" type="text/css" href="/css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-<img id="logo" src="/images/etsy-list-logo_ow.png" alt="Etsylist" width="300px">
-<h1>User Settings</h1>
-<nav>
-  <ul>
-    <li><a href="/dashboard">Dashboard</a></li>
-    <li><a href="/search">Search</a></li>
-    <li><a href="/lists">Your Wishlist</a></li>
-    <li><a href="/logout">Log Out</a></li>
-  </ul>
-</nav>
 
-<h1>Hey {{name}}!</h1>
+  <div class="navbar-fixed">
+    <nav class="grey darken-1">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo left"><img id="logo" class="responsive-img valign-wrapper" src="/images/etsy-list-logo_ow.png" alt="Etsylist"></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/dashboard">Dasboard</a></li>
+          <li><a href="/search">Search</a></li>
+          <li><a href="/lists">Wishlist</a></li>
+          <li class="active"><a href="/settings">Settings</a></li>
+          <li><a href="/logout">Log Out</a></li>
+        </ul>
+        <ul class="side-nav right" id="mobile-demo">
+          <li><a href="/dashboard">Dasboard</a></li>
+          <li><a href="/search">Search</a></li>
+          <li><a href="/lists">Wishlist</a></li>
+          <li><a href="/settings">Settings</a></li>
+          <li><a href="/logout">Log Out</a></li>
+      </ul>
+      </div>
+    </nav>
+  </div>
 
-<h2>Your name is set to: {{name}}</h2><br/>
-<h2>Your email is set to: {{email}}</h2></body><br/>
+  <div class="container orange darken-3" id="index-container">
+    <h1>User Settings</h1>
 
-<h1>Edit</h1>
-<form method="POST" action="/updateusers/{{id}}?_method=PUT">
-<input name="name" id="name" value="{{name}}"><br>
-<input name="email" id="email" value="{{email}}"><br>
-<button type="submit">Update!</button>
-</form>
+    <h1>Hey {{name}}!</h1>
+
+    <h2>Your name is set to: {{name}}</h2><br/>
+    <h2>Your email is set to: {{email}}</h2><br/>
+
+    <h1>Edit</h1>
+    <form method="POST" action="/updateusers/{{id}}?_method=PUT">
+    <input name="name" id="name" value="{{name}}"><br>
+    <input name="email" id="email" value="{{email}}"><br>
+    <button type="submit">Update!</button>
+    </form>
+  </div>
 
 
 <script src="/js/script.js"></script>

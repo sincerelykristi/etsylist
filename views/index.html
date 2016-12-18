@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Etsy.list</title>
-  <script type="text/javascript" src="/js/jquery.js"></script>
-  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Heebo:500" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- title -->
+    <title>Etsy.list</title>
+
+    <!-- scripts Jquery and Materialize -->
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/materialize.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <!-- stylesheets -->
+<!--     <link rel="stylesheet" type="text/css" href="/css/normalize.css"> -->
+    <link rel="stylesheet" type="text/css" href="/css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-  <div class="row">
-    <div class="col-sm-12 col-md-2 col-lg-2 text-center">
-      <img id="logo" src="/images/etsy-list-logo_ow.png" alt="Etsylist" width="300px">
-    </div>
+<div class="navbar-fixed">
+    <nav class="transparent">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo left"><img id="logoindex" class="responsive-img" src="/images/etsy-list-logo_ow.png" alt="Etsylist"></a>
+      </div>
+    </nav>
   </div>
-  <div class="row">
-    <div class="col-xs-8-offset-2 col-sm-10-offset-1 col-lg-10-offset-1 middlewrapper">
+
+
+    <div class="container orange darken-3" id="index-container">
       <h1>Shop Handmade...</h1>
-      <h2>And get the things you want.</h2><br/><br/>
-      <button type="button" class="btn btn-default btn-lg">
-      <a href="/signup">Sign Up</a>
+      <h2 class="grey-text text-darken-3">And get the things you want.</h2><br/><br/>
+      <button type="button" class="btn btn-default btn-lg white">
+      <a class="grey-text text-darken-3" href="/signup">Sign Up</a>
       </button>
-      <button type="button" class="btn btn-default btn-lg">
-      <a href="/login">Log In</a>
+      <button type="button" class="btn btn-default btn-lg white">
+      <a class="grey-text text-darken-3" href="/login">Log In</a>
       </button>
-      <button type="button" class="btn btn-default btn-lg">
-      <a href="/guest">Continue as Guest</a>
-      </button>
+      <!-- <button type="button" class="btn btn-default btn-lg white">
+      <a class="grey-text text-darken-3" href="/guest">Continue as Guest</a>
+      </button> -->
     </div>
-  </div>
+
+
 
 
 

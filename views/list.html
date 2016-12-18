@@ -1,94 +1,77 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html>
 
 <head>
+    <!-- meta tags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- title -->
     <title>Etsy.list</title>
+
+    <!-- scripts Jquery and Materialize -->
     <script type="text/javascript" src="/js/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <script type="text/javascript" src="/js/materialize.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Heebo:500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <!-- stylesheets -->
+<!-- <link rel="stylesheet" type="text/css" href="/css/normalize.css"> -->
+    <link rel="stylesheet" type="text/css" href="/css/materialize.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+
 </head>
 
 <body>
-<div class="container">
-<!-- Code from Bootstraps default navbar -->
-    <nav id="header-default" class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-menu-header" aria-expanded="false">
-                    <!-- sr = screen reader -->
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <img id="logo" src="/images/etsy-list-logo_ow.png" alt="Etsylist" width="300px">
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="collapse-menu-header">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/dashboard">Dasboard</a></li>
-                    <li><a href="/search">Search</a></li>
-                    <li><a href="/settings">Settings</a></li>
-                    <li><a href="/logout">Log Out</a></li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <!-- <div class="col-xs-8-offset-2 col-sm-10-offset-1 col-lg-10-offset-1 welcome">
-              <h2>{{data.name}}'s Wishlist</h2>
-              {{#item}}
-              <div class="listwrapper">
-                  <h3>{{name}}</h3>
-                  <img src="{{image}}">
-                  <h4>${{price}}</h4>
-                  <a href="{{link}}">Buy on Etsy</a>
-                  <form method="POST" action="/delete/{{id}}?_method=DELETE">
-                      <input name="id" type="hidden" value={{id}}>
-                      <button type="submit" value="submit" class="btn btn-default btn-lg">
-                          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                      </button>
-                  </form>
-              </div>
-              {{/item}}
-          </div> -->
-    </div>
-    <script src="/js/script.js"></script>
+  <div class="navbar-fixed">
+    <nav class="grey darken-1">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo left"><img id="logo" class="responsive-img" src="/images/etsy-list-logo_ow.png" alt="Etsylist"></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/dashboard">Dasboard</a></li>
+          <li><a href="/search">Search</a></li>
+          <li class="active"><a href="/lists">Wishlist</a></li>
+          <li><a href="/settings">Settings</a></li>
+          <li><a href="/logout">Log Out</a></li>
+        </ul><!-- closing nav-mobile -->
+        <ul class="side-nav right" id="mobile-demo">
+          <li><a href="/dashboard">Dasboard</a></li>
+          <li><a href="/search">Search</a></li>
+          <li><a href="/lists">Wishlist</a></li>
+          <li><a href="/settings">Settings</a></li>
+          <li><a href="/logout">Log Out</a></li>
+      </ul><!-- closing side-nav right mobile demo -->
+      </div><!-- closing nav wrapper -->
+    </nav><!-- closing nav grey -->
+ </div><!-- closing navbar -->
+  <div id="wishlist-container">
+      <h2 id="wishlistheader" class="white-text center-align">{{data.name}}'s Wishlist</h2>
+        {{#item}}
+        <div class="listwrapper white">
+          <h3 class="wishlistitem">{{name}}</h3>
+          <div id="img-container">
+          <img id="item-img" class="responsive-img" src="{{image}}">
+          </div>
+          <div id="item-details">
+          <h4>${{price}}</h4>
+          <a href="{{link}}" class="btn">Buy on Etsy<i class="material-icons">shopping_cart</i></a>
+          <br>
+          <form method="POST" action="/delete/{{id}}?_method=DELETE">
+            <input name="id" type="hidden" value={{id}}>
+              <button type="submit" value="submit" class="btn">
+                <p>Delete<i class="material-icons">delete</i></p>
+              </button>
+          </form>
+          </div>
+        </div><!-- end listwrapper -->
+        {{/item}}
+  </div><!-- closing container -->
+  <script src="/js/script.js"></script>
 </body>
 
 </html>

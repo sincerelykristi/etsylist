@@ -1,7 +1,8 @@
 $(document).ready(function() {
     console.log('all systems go on script.js');
 
-
+    // navbar mobile button initialization
+    $(".button-collapse").sideNav();
 
     //Search functions to be rendered on search.html
     var callEtsy = function(searchedWords) {
@@ -61,7 +62,7 @@ $(document).ready(function() {
         $form.append("<input name='name' type='hidden' value='" +shortTitle+ "'>");
         $form.append("<input name='link' type='hidden' value='" +link+ "'>");
         $form.append("<input name='price' type='hidden' value='" +price+ "'>");
-        $form.append("<button type='submit' value='submit' class='btn btn-default btn-lg'><span class='glyphicon glyphicon-heart' aria-hidden='true'></span></button>");
+        $form.append("<button type='submit' value='submit' class='btn-default btn-lg white'><span class='grey-text text-darken-3'>&#10084;</span></button>");
         };
 
     //end Search functions
