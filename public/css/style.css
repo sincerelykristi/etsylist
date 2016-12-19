@@ -195,6 +195,13 @@ button p {
   margin: 0;
 }
 
+#mobile-demo {
+  z-index: 1;
+}
+
+#sidenav-overlay {
+  z-index: 2;
+}
 
 
 
