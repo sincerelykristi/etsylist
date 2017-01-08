@@ -54,7 +54,7 @@ $(document).ready(function() {
         var $form = $("<form action='/additem' method='post'></form>");
         $etsyimages.append($item);
         $item.append("<img src='" + image + "'>");
-        $item.append("<p>$" + price + "</p>");
+        $item.append("<h3>$" + price + "</h3>");
         $item.append("<p>" + shortTitle + "</p>");
         $item.append("<a href=" + link + "> Buy on Etsy </a>");
         $item.append($form);

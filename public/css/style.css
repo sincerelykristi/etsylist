@@ -69,6 +69,13 @@ nav .brand-logo {
   padding: 50px;
 }
 
+#dashboard-container {
+  padding: 30px;
+  margin-top: 150px;
+}
+
+
+
 
 /* @media only screen and (min-width: 601px){
     nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
@@ -103,7 +110,7 @@ nav .brand-logo {
 /* index page mobile styling start */
 
     #logoindex {
-      width: 100%;
+      width: 87vw;
       height: 100%;
     }
 
@@ -121,7 +128,7 @@ nav .brand-logo {
     }
 
     #index-container h2 {
-      font-size: 30px;
+      font-size: large;
       display: inline-block;
     }
 
@@ -136,8 +143,10 @@ nav .brand-logo {
       padding: 0;
     }
 /* index mobile page styling end */
-
-
+  #dashboard-container {
+    font-size: 3vw;
+    text-overflow: visible;
+  }
 
 }
 
@@ -203,6 +212,41 @@ button p {
   z-index: 2;
 }
 
+#etsy-images {
+  margin-top: 15px;
+}
 
+.item {
+  margin-top: 20px;
+}
+
+.item img {
+  width: 50%;
+}
+
+.item h3 {
+  margin: 10px;
+}
+
+.item p {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.item button {
+  display: inline-block;
+  width: 50px;
+}
+
+.item a {
+  display: inline-block;
+  color: white;
+  font-size: 1em;
+  padding: 10px;
+}
+
+.item form {
+  display: inline-block;
+}
 
 
